@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo-dark.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Props Color Finder</title>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Find the closest
+        <a href="https://open-props.style/">Open Props</a> color
+      </h1>
+    </header>
+
+    <fieldset id="forms__html5">
+      <legend>Color picker</legend>
+      <p>
+        <input type="color" id="colorWell" value="#4263eb" />
+      </p>
+    </fieldset>
+
+    <div id="surface-samples"></div>
+
+    <footer>
+      <div class="icons-container">
+        <a
+          href="https://github.com/mobalti/props-color-finder"
+          title="Source on Github"
+          ><svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="var(--text-1)"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16 0C7.16262 0 0 7.34393 0 16.405C0 23.6519 4.58312 29.8017 10.942 31.9728C11.7425 32.1208 12.0313 31.6159 12.0313 31.1817C12.0313 30.7919 12.0184 29.7589 12.0136 28.3921C7.56206 29.3823 6.62202 26.1914 6.62202 26.1914C5.89693 24.2966 4.8462 23.7917 4.8462 23.7917C3.39443 22.7736 4.95689 22.7966 4.95689 22.7966C6.56427 22.9117 7.40646 24.4874 7.40646 24.4874C8.83417 26.9941 11.1538 26.2704 12.0618 25.851C12.2077 24.7901 12.6248 24.0664 13.0804 23.6568C9.52878 23.244 5.79426 21.8361 5.79426 15.5481C5.79426 13.7602 6.41829 12.2931 7.43694 11.1483C7.27491 10.7322 6.72148 9.06272 7.59575 6.80609C7.59575 6.80609 8.93844 6.36364 11.9944 8.4854C13.2995 8.12137 14.6458 7.93555 15.9984 7.93276C17.351 7.93501 18.6974 8.12084 20.0024 8.4854C23.06 6.362 24.401 6.80609 24.401 6.80609C25.2753 9.06272 24.7267 10.7322 24.5599 11.1483C25.5865 12.2931 26.2025 13.7586 26.2025 15.5481C26.2025 21.8525 22.4648 23.2374 18.9003 23.6437C19.4698 24.1503 19.9832 25.1503 19.9832 26.6799C19.9832 28.8741 19.9639 30.6438 19.9639 31.1817C19.9639 31.6208 20.2494 32.1307 21.066 31.9695C27.4217 29.7951 32 23.6502 32 16.405C32 7.34393 24.8374 0 16 0Z"
+            />
+          </svg>
+        </a>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          title="Toggles light & dark"
+          aria-label="auto"
+          aria-live="polite"
+        >
+          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24">
+            <mask id="moon">
+              <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+              <circle cx="40" cy="8" r="11" fill="black"></circle>
+            </mask>
+            <circle id="sun" cx="12" cy="12" r="11" mask="url(#moon)"></circle>
+            <g id="sun-beams">
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
