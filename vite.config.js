@@ -5,9 +5,14 @@ export default defineConfig({
     VitePWA({
       icons: [
         {
-          src: '/main-logo.png',
-          size: '512x512',
+          src: '/image/icons-192.png',
           type: 'image/png',
+          sizes: '192x192',
+        },
+        {
+          src: '/image/icons-512.png',
+          type: 'image/png',
+          sizes: '512x512',
         },
       ],
     }),
