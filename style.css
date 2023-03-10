@@ -52,8 +52,11 @@ h1 {
 
 .surface-1 {
   background-color: var(--surface-2);
-  color: var(--text-2);
-  /* aspect-ratio: var(--ratio-square); */
+  color: var(--gray-12);
+
+  &.dark {
+    color: var(--gray-1);
+  }
 }
 #colorWell {
   --size: var(--size-10);
@@ -68,7 +71,6 @@ header {
 }
 
 .icons-container {
-  /* background-color: antiquewhite; */
   display: flex;
   gap: var(--size-2);
   align-content: center;

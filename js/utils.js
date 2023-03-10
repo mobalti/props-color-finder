@@ -21,9 +21,7 @@ function hexToRgb(hex) {
 }
 
 function getTextColor(color) {
-  return parseInt(color.replace(/\D*/, '')) > 5
-    ? 'var(--gray-0)'
-    : 'var(--gray-12)';
+  return parseInt(color.replace(/\D*/, '')) > 5 ? 'dark' : '';
 }
 
 function findClosestColor(targetColor, srcMapColors) {
