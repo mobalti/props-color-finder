@@ -1,3 +1,5 @@
+@import './theme.css';
+
 body {
   display: grid;
   align-content: flex-start;
@@ -12,26 +14,6 @@ body {
   margin: 0;
 }
 
-[data-theme='dark'] {
-  color-scheme: dark;
-
-  --link: var(--indigo-3);
-  --link-visited: var(--purple-3);
-
-  --text-1: var(--gray-1);
-  --text-2: var(--gray-4);
-
-  --surface-1: var(--gray-9);
-  --surface-2: var(--gray-8);
-  --surface-3: var(--gray-7);
-  --surface-4: var(--gray-6);
-
-  --shadow-strength: 10%;
-  --shadow-color: 220 40% 2%;
-
-  --scrollthumb-color: var(--gray-6);
-}
-
 h1 {
   max-inline-size: 17ch;
 }
@@ -41,7 +23,7 @@ h1 {
   --size: var(--size-content-1);
   grid-template-columns: repeat(auto-fill, minmax(var(--size), 1fr));
   gap: var(--size-5);
-  margin-block-start: var(--size-6);
+  margin-block: var(--size-6);
 }
 
 @media (max-width: 480px) {
@@ -170,7 +152,7 @@ footer {
   justify-content: center;
   background-color: var(--surface-2);
   & svg {
-    block-size: 24px;
-    inline-size: 24px;
+    block-size: var(--size-5);
+    inline-size: var(--size-5);
   }
 }

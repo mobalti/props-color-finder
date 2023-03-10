@@ -1,7 +1,6 @@
 import 'open-props/style';
 import 'open-props/normalize';
 import './style.css';
-// import 'open-props/buttons';
 import { findClosestColor, getTextColor } from './js/utils';
 import { localColorsMap } from './js/localColors';
 let colorWell;
