@@ -4,6 +4,11 @@ export default defineConfig({
   plugins: [
     VitePWA({
       manifest: {
+
+         "lang": "en-us",
+         "name": "Props Color Finder",
+         "short_name": "Props Color",
+          "description": "A Progressive Web Application that helps users find the closest Open Props color.",
         icons: [
           {
             src: '/image/icons-192.png',
