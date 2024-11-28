@@ -73,13 +73,8 @@
         <form id="form-color-picker" name="color-picker" class="form-color-picker">
           <fieldset class="fieldset">
             <legend class="legend">Color picker</legend>
-            <label
-              for="color-picker"
-              style="inline-size: 0; block-size: 0; display: block; opacity: 0"
-              for=""
-              >Pick Color</label
-            >
-            <input autofocus id="color-picker" class="input-color" type="color" />
+            <label for="color-picker" class="sr-only" for="color-picker">Pick Color</label>
+            <input autofocus value="#000000" id="color-picker" class="input-color" type="color" />
           </fieldset>
         </form>
       </header>

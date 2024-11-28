@@ -250,4 +250,11 @@
       display: none;
     }
   }
+
+  .sr-only {
+    inline-size: 0;
+    block-size: 0;
+    display: block;
+    opacity: 0;
+  }
 }
