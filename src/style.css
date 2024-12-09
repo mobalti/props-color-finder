@@ -7,6 +7,14 @@
 
 
 @layer base {
+  :root {
+
+    /* motionNotOK */
+    @media (prefers-reduced-motion: reduce) {
+      view-transition-name: none;
+    }
+  }
+
   html {
     overflow-y: scroll;
     scrollbar-width: thin;
@@ -132,9 +140,9 @@
     @media (prefers-reduced-motion: no-preference) {
       visibility: hidden;
       animation: custom-slide-in;
-      animation-timing-function: var(--ease-3);
+      animation-timing-function: var(--ease-out-5);
       animation-fill-mode: forwards;
-      animation-duration: 0.6s;
+      animation-duration: 0.5s;
       animation-delay: 0.5s;
     }
   }
