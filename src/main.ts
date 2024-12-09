@@ -72,11 +72,8 @@ function setColor(pickedColor: string) {
 }
 
 function displayResult(colorName: string, colorHex: string) {
-  document.startViewTransition
-    ? document.startViewTransition(() =>
-        resultSection?.prepend(createPickedColorElement(colorName, colorHex))
-      )
-    : resultSection?.prepend(createPickedColorElement(colorName, colorHex));
+  document.startViewTransition;
+  resultSection?.prepend(createPickedColorElement(colorName, colorHex));
 }
 
 function createPickedColorElement(colorName: string, color: string): HTMLDivElement {
