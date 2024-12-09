@@ -1,7 +1,7 @@
 @layer design-system, reset, base, utilities, components, layout, overrides;
 
 @import "open-props/normalize.min.css" layer(design-system.normalize);
-/* @import "https://unpkg.com/open-props/buttons.min.css" layer(design-system.buttons); */
+@import "open-props/buttons.min.css" layer(design-system.buttons);
 @import "open-props/theme.light.switch.min.css" layer(design-system.theme-light);
 @import "open-props/theme.dark.switch.min.css" layer(design-system.theme-dark);
 
@@ -13,7 +13,7 @@
 
     --input-color-block-size: 2.5rem;
     --main-container-max-inline-size: 572px;
-    --footer-block-size: var(--size-px-9);
+    --footer-block-size: 74px;
     --picked-color-size: 72px;
     --app-extra-small-screen-padding-inline: 1rem;
     --app-small-screen-padding-inline: 1.75rem;
@@ -112,6 +112,7 @@
     gap: var(--size-6);
 
 
+
   }
 
   .picked-color {
@@ -121,6 +122,38 @@
     gap: var(--size-3);
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-5);
+
+
+
+
+
+
+    /* motionOK */
+    @media (prefers-reduced-motion: no-preference) {
+      visibility: hidden;
+      animation: custom-slide-in;
+      animation-timing-function: var(--ease-3);
+      animation-fill-mode: forwards;
+      animation-duration: 0.6s;
+      animation-delay: 0.5s;
+    }
+  }
+
+
+  @keyframes custom-slide-in {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    66% {
+      opacity: 1;
+    }
+
+
+    100% {
+      visibility: visible;
+    }
   }
 
   .span-color {
@@ -136,8 +169,6 @@
   .headline-link {
     white-space: nowrap;
   }
-
-
 }
 
 
@@ -154,10 +185,16 @@
     inset-inline: 0;
     place-items: center;
     background-color: var(--surface-2);
-    background-color: color-mix(in oklch, var(--surface-2), transparent var(--_alpha));
-    backdrop-filter: blur(28px);
+
     padding-inline: var(--app-extra-small-screen-padding-inline);
 
+    /* opacityOK */
+    @media (prefers-reduced-transparency: no-preference) {
+
+      background-color: color-mix(in oklch, var(--surface-2), transparent var(--_alpha));
+      backdrop-filter: blur(28px);
+
+    }
 
     /* xs-n-above */
     @media (width >=360px) {
@@ -201,13 +238,40 @@
   }
 
 
-
   .footer-controls-group {
     display: flex;
     gap: var(--size-1);
   }
 
+  .controls-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--size-3);
+  }
+
+  .custom-btn {
+    font-size: 0.875rem;
+    text-shadow: none;
+    block-size: 40px;
+    font-weight: 600;
+    padding-block: 4px;
+    color: var(--text-2);
+
+    @media (width < 480px) {
+      text-transform: capitalize;
+
+      .quick {
+        display: none;
+      }
+    }
+
+  }
+
   .common-btn {
+
+    --_icon-size: var(--size-px-5);
+    box-shadow: none;
+    border-width: 0;
     inline-size: var(--size-px-8);
     block-size: var(--size-px-8);
     color: var(--text-2);
@@ -220,12 +284,16 @@
     &:hover {
       background-color: var(--surface-1);
     }
+
+    /* md-n-below */
+
   }
 
   .moon {
     display: none;
   }
 }
+
 
 
 
@@ -256,5 +324,26 @@
     block-size: 0;
     display: block;
     opacity: 0;
+  }
+}
+
+
+@layer overrides {
+  .span-show-md {
+
+    /* md-n-above */
+    @media (width >=768px) {
+      display: none;
+    }
+
+  }
+
+  .span-show-lg {
+    display: none;
+
+    /* md-n-above */
+    @media (width >=768px) {
+      display: inline;
+    }
   }
 }
