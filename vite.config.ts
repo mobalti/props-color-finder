@@ -1,37 +1,27 @@
-import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
-
-// https://vitejs.dev/config/
+import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [
     VitePWA({
-      registerType: 'prompt',
-      injectRegister: false,
-
-      pwaAssets: {
-        disabled: false,
-        config: true,
-      },
-
+      registerType: 'autoUpdate',
       manifest: {
+        lang: 'en-us',
         name: 'Props Color Finder',
         short_name: 'Props Color',
-        description:
-          'A Progressive Web Application that helps users find the closest Open Props color.',
+        description: 'A Progressive Web Application Color Picker.',
         theme_color: '#ffffff',
-      },
-
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
-        cleanupOutdatedCaches: true,
-        clientsClaim: true,
-      },
-
-      devOptions: {
-        enabled: false,
-        navigateFallback: 'index.html',
-        suppressWarnings: true,
-        type: 'module',
+        icons: [
+          {
+            src: '/images/icon-192.png',
+            type: 'image/png',
+            sizes: '192x192',
+          },
+          {
+            src: '/images/icon-512.png',
+            type: 'image/png',
+            sizes: '512x512',
+          },
+        ],
       },
     }),
   ],

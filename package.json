@@ -10,17 +10,11 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@vite-pwa/assets-generator": "^0.2.4",
+    "@types/chroma-js": "^2.4.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.10",
-    "vite-plugin-pwa": "^0.20.0",
-    "workbox-window": "^7.1.0",
-    "@types/chroma-js": "^2.4.4",
-    "vitest": "^2.1.5"
-  },
-  "overrides": {
-    "sharp": "0.32.6",
-    "sharp-ico": "0.1.5"
+    "vitest": "^2.1.5",
+    "vite-plugin-pwa": "^0.20.0"
   },
   "dependencies": {
     "chroma-js": "^3.1.2",
