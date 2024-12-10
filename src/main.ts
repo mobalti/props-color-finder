@@ -119,15 +119,18 @@ function createQuickPickButton() {
 
   svg.appendChild(path);
 
-  const span = document.createElement('span');
-  span.className = 'quick';
-  span.textContent = 'Quick';
+  const quickSpan = document.createElement('span');
+  quickSpan.className = 'quick';
+  quickSpan.textContent = 'Quick ';
 
+  const buttonText = document.createElement('span'); // Container for "Quick pick"
   const textNode = document.createTextNode('pick');
 
+  buttonText.appendChild(quickSpan);
+  buttonText.appendChild(textNode);
+
   quickPickBtn.appendChild(svg);
-  quickPickBtn.appendChild(span);
-  quickPickBtn.appendChild(textNode);
+  quickPickBtn.appendChild(buttonText);
 
   return quickPickBtn;
 }
