@@ -1,20 +1,24 @@
 {
   "name": "props-color-finder",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "devDependencies": {
-    "postcss-preset-env": "^8.0.1",
-    "vite": "^4.1.0",
-    "vite-plugin-pwa": "^0.14.4"
+    "@types/chroma-js": "^2.4.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.10",
+    "vitest": "^2.1.5",
+    "vite-plugin-pwa": "^0.20.0"
   },
   "dependencies": {
-    "open-props": "^1.5.5",
-    "postcss-jit-props": "^1.0.12"
+    "chroma-js": "^3.1.2",
+    "open-props": "^1.7.7",
+    "postcss-jit-props": "^1.0.14"
   }
 }

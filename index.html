@@ -2,75 +2,111 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/image/icons-512.png" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/icon-512.png" />
     <title>Props Color Finder</title>
-    <script src="./script.js"></script>
+    <meta
+      name="description"
+      content="Props Color Finder: A PWA to match colors with Open Props, CSS named colors, and convert to OKLCH. Includes LAB perceptual matching for accurate results."
+    />
+
+    <script src="/theme.js"></script>
   </head>
   <body>
-    <header>
-      <h1>
-        Find the closest
-        <a href="https://open-props.style/">Open Props</a> color
-      </h1>
-    </header>
+    <div id="app" class="app">
+      <header class="header">
+        <form id="form-color-palette" name="color-palette" action="" class="form-color-palette">
+          <h1 class="headline">
+            <label for="color-palette">
+              Find the closest
+              <select class="select" name="palette" id="color-palette">
+                <option class="option" value="openProps" selected>Open Props</option>
+                <option class="option named-css" value="namedCSS">Named CSS</option>
+                <option class="option hdr" value="hdr">HDR(oklch)</option>
+              </select>
+              color
+            </label>
+          </h1>
+        </form>
+        <form id="form-color-picker" name="color-picker" class="form-color-picker">
+          <fieldset class="fieldset">
+            <legend class="legend">Color picker</legend>
+            <label for="color-picker" class="sr-only" for="color-picker">Pick Color</label>
+            <input autofocus value="#000001" id="color-picker" class="input-color" type="color" />
+          </fieldset>
+        </form>
+      </header>
+      <main class="main">
+        <section id="result" class="section"></section>
+      </main>
+      <footer class="footer">
+        <div class="distance-mode">
+          <input type="checkbox" id="distance-mode" />
 
-    <fieldset id="forms__html5">
-      <legend>Color picker</legend>
-      <p>
-        <input type="color" id="colorWell" value="#4263eb" />
-      </p>
-    </fieldset>
-
-    <div id="surface-samples"></div>
-
-    <footer>
-      <div class="icons-container">
-        <a
-          href="https://github.com/mobalti/props-color-finder"
-          title="Source on Github"
-          ><svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="var(--text-1)"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M16 0C7.16262 0 0 7.34393 0 16.405C0 23.6519 4.58312 29.8017 10.942 31.9728C11.7425 32.1208 12.0313 31.6159 12.0313 31.1817C12.0313 30.7919 12.0184 29.7589 12.0136 28.3921C7.56206 29.3823 6.62202 26.1914 6.62202 26.1914C5.89693 24.2966 4.8462 23.7917 4.8462 23.7917C3.39443 22.7736 4.95689 22.7966 4.95689 22.7966C6.56427 22.9117 7.40646 24.4874 7.40646 24.4874C8.83417 26.9941 11.1538 26.2704 12.0618 25.851C12.2077 24.7901 12.6248 24.0664 13.0804 23.6568C9.52878 23.244 5.79426 21.8361 5.79426 15.5481C5.79426 13.7602 6.41829 12.2931 7.43694 11.1483C7.27491 10.7322 6.72148 9.06272 7.59575 6.80609C7.59575 6.80609 8.93844 6.36364 11.9944 8.4854C13.2995 8.12137 14.6458 7.93555 15.9984 7.93276C17.351 7.93501 18.6974 8.12084 20.0024 8.4854C23.06 6.362 24.401 6.80609 24.401 6.80609C25.2753 9.06272 24.7267 10.7322 24.5599 11.1483C25.5865 12.2931 26.2025 13.7586 26.2025 15.5481C26.2025 21.8525 22.4648 23.2374 18.9003 23.6437C19.4698 24.1503 19.9832 25.1503 19.9832 26.6799C19.9832 28.8741 19.9639 30.6438 19.9639 31.1817C19.9639 31.6208 20.2494 32.1307 21.066 31.9695C27.4217 29.7951 32 23.6502 32 16.405C32 7.34393 24.8374 0 16 0Z"
-            />
-          </svg>
-        </a>
-        <button
-          class="theme-toggle"
-          id="theme-toggle"
-          title="Toggles light & dark"
-          aria-label="auto"
-          aria-live="polite"
-        >
-          <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24">
-            <mask id="moon">
-              <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-              <circle cx="40" cy="8" r="11" fill="black"></circle>
-            </mask>
-            <circle id="sun" cx="12" cy="12" r="11" mask="url(#moon)"></circle>
-            <g id="sun-beams">
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </g>
-          </svg>
-        </button>
-      </div>
-    </footer>
-
-    <script type="module" src="/main.js"></script>
+          <label for="distance-mode">
+            <span class="span-show-lg">Enable LAB Color Matching</span>
+            <span class="span-show-md">LAB Mode</span>
+          </label>
+        </div>
+        <div class="controls-wrapper">
+          <div class="button-container"></div>
+          <div class="footer-controls-group">
+            <a
+              class="common-btn"
+              href="https://github.com/mobalti/props-color-finder"
+              title="Source on Github"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
+                ></path>
+              </svg>
+            </a>
+            <button
+              class="common-btn theme-toggle"
+              id="theme-toggle"
+              title="Toggles light &amp; dark"
+              aria-label="light"
+              aria-live="polite"
+            >
+              <svg
+                class="sun"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"
+                ></path>
+              </svg>
+              <svg
+                class="moon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

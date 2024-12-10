@@ -1,11 +1,7 @@
 // theme toggle
 const getColorPreference = () => {
-  if (localStorage.getItem('theme-preference'))
-    return localStorage.getItem('theme-preference');
-  else
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+  if (localStorage.getItem('theme-preference')) return localStorage.getItem('theme-preference');
+  else return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 const setPreference = () => {
@@ -15,9 +11,7 @@ const setPreference = () => {
 
 const reflectPreference = () => {
   document.firstElementChild.setAttribute('data-theme', theme.value);
-  document
-    .querySelector('#theme-toggle')
-    ?.setAttribute('aria-label', theme.value);
+  document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
 };
 
 const theme = {

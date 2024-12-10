@@ -1,7 +1,13 @@
 const postcssJitProps = require('postcss-jit-props');
-const OpenProps = require('open-props');
-const postcssPresetEnv = require('postcss-preset-env');
+const path = require('path');
 
 module.exports = {
-  plugins: [postcssJitProps(OpenProps), postcssPresetEnv({ stage: 1 })],
+  plugins: [
+    postcssJitProps({
+      files: [
+        path.resolve(__dirname, 'node_modules/open-props/open-props.min.css'),
+      ],
+      layer: 'design-system.tokens',
+    }),
+  ],
 };
