@@ -1,10 +1,9 @@
 @layer design-system, reset, base, utilities, components, layout, overrides;
 
-@import "open-props/normalize.min.css" layer(design-system.normalize);
-@import "open-props/buttons.min.css" layer(design-system.buttons);
-@import "open-props/theme.light.switch.min.css" layer(design-system.theme-light);
-@import "open-props/theme.dark.switch.min.css" layer(design-system.theme-dark);
-
+@import 'open-props/normalize.min.css' layer(design-system.normalize);
+@import 'open-props/buttons.min.css' layer(design-system.buttons);
+@import 'open-props/theme.light.switch.min.css' layer(design-system.theme-light);
+@import 'open-props/theme.dark.switch.min.css' layer(design-system.theme-dark);
 
 @layer base {
   html {
@@ -21,7 +20,6 @@
   }
 }
 
-
 @layer layout {
   .app {
     display: grid;
@@ -30,7 +28,6 @@
     padding-block: var(--size-fluid-3);
     place-items: start center;
     padding-inline: var(--app-extra-small-screen-padding-inline);
-
 
     /* xs-n-above */
     @media (width >=360px) {
@@ -41,7 +38,6 @@
     @media (width >=480px) {
       padding-inline: var(--app-large-screen-padding-inline);
     }
-
   }
 
   .header {
@@ -52,13 +48,11 @@
   }
 
   .headline {
-
     /* md-n-below */
     @media (width < 768px) {
       font-size: var(--font-size-7);
     }
   }
-
 
   .select {
     background-color: inherit;
@@ -67,7 +61,6 @@
     padding-block: 0;
     padding-inline-start: 0;
 
-
     &:has(.named-css:checked) {
       color: var(--link-visited);
     }
@@ -75,23 +68,18 @@
     &:has(.hdr:checked) {
       color: light-dark(var(--pink-7), var(--pink-3));
     }
-
   }
 
   .option {
     color: black;
     font-size: var(--font-size-5);
-
   }
-
 
   .input-color {
     inline-size: 100%;
     block-size: var(--input-color-block-size);
   }
-
 }
-
 
 @layer layout {
   .main {
@@ -110,9 +98,6 @@
 
     inline-size: 100%;
     gap: var(--size-6);
-
-
-
   }
 
   .picked-color {
@@ -139,11 +124,9 @@
   }
 }
 
-
 @layer layout {
-
   .footer {
-    --_alpha: 5%;
+    --_bg: var(--surface-2);
     position: fixed;
     inset-block-end: 0;
     min-block-size: var(--footer-block-size);
@@ -152,16 +135,14 @@
     justify-content: space-between;
     inset-inline: 0;
     place-items: center;
-    background-color: var(--surface-2);
+    background-color: var(--_bg);
 
     padding-inline: var(--app-extra-small-screen-padding-inline);
 
     /* opacityOK */
     @media (prefers-reduced-transparency: no-preference) {
-
-      background-color: color-mix(in oklch, var(--surface-2), transparent var(--_alpha));
+      --_bg: rgb(from var(--surface-2) r g b / 85%);
       backdrop-filter: blur(28px);
-
     }
 
     /* xs-n-above */
@@ -174,19 +155,15 @@
       padding-inline: var(--app-large-screen-padding-inline);
     }
 
-
     @media (prefers-reduced-transparency: no-preference) {
       --_alpha: 30%;
     }
-
   }
-
 
   .distance-mode {
     display: flex;
     align-items: center;
     gap: var(--size-2);
-
 
     /* sm-n-below */
     @media (width < 480px) {
@@ -198,13 +175,10 @@
       font-size: var(--font-size-0);
     }
 
-
     .app:has(.hdr:checked) & {
       visibility: hidden;
     }
-
   }
-
 
   .footer-controls-group {
     display: flex;
@@ -232,11 +206,9 @@
         display: none;
       }
     }
-
   }
 
   .common-btn {
-
     --_icon-size: var(--size-px-5);
     box-shadow: none;
     border-width: 0;
@@ -254,7 +226,6 @@
     }
 
     /* md-n-below */
-
   }
 
   .moon {
@@ -262,11 +233,7 @@
   }
 }
 
-
-
-
 @layer overrides {
-
   .sun {
     [data-theme='dark'] & {
       display: none;
@@ -295,15 +262,12 @@
   }
 }
 
-
 @layer overrides {
   .span-show-md {
-
     /* md-n-above */
     @media (width >=768px) {
       display: none;
     }
-
   }
 
   .span-show-lg {
