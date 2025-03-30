@@ -8,7 +8,6 @@
 @layer base {
   html {
     overflow-y: scroll;
-    scrollbar-width: thin;
 
     --input-color-block-size: 2.5rem;
     --main-container-max-inline-size: 572px;
@@ -107,6 +106,17 @@
     gap: var(--size-3);
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-5);
+
+    &:first-child {
+      .span-color {
+        /* motionOK */
+        @media (prefers-reduced-motion: no-preference) {
+          animation: var(--animation-bounce);
+          animation-delay: 0.5s;
+          animation-iteration-count: 1;
+        }
+      }
+    }
   }
 
   .span-color {

@@ -72,7 +72,6 @@ function setColor(pickedColor: string) {
 }
 
 function displayResult(colorName: string, colorHex: string) {
-  document.startViewTransition;
   resultSection?.prepend(createPickedColorElement(colorName, colorHex));
 }
 
