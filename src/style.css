@@ -112,7 +112,7 @@
     block-size: var(--picked-color-size);
     border-radius: var(--radius-3);
     border: var(--border-size-1) solid var(--surface-4);
-    box-shadow: var(--shadow-6);
+    box-shadow: var(--shadow-3);
     font-weight: var(--font-weight-6);
     inline-size: var(--picked-color-size);
     padding-block: var(--size-1);
