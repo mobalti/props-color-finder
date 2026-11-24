@@ -71,6 +71,7 @@
 
   .option {
     color: black;
+    background: white;
     font-size: var(--font-size-5);
   }
 
